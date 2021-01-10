@@ -10,7 +10,7 @@
         <div class="container py-6 py-lg-7 text-white overlay-content text-center">
             <div class="row">
                 <div class="col-xl-10 mx-auto">
-                    <h1 class="display-3 font-weight-bold text-shadow">Discover Directory</h1>
+                    <h1 class="display-3 font-weight-bold text-shadow">Route Planner</h1>
                     <p class="text-lg text-shadow">Uncover the best places to eat, drink, and shop nearest to you.</p>
                 </div>
             </div>
@@ -48,5 +48,79 @@
             </form>
         </div>
     </div>
+
+    <section class="pt-4 pb-6">
+        <div class="container">
+            <div class="pb-lg-4">
+                <p class="subtitle text-secondary">One-of-a-kind Tracking app</p>
+                <h2 class="mb-5">Track your Daily routs and spendings</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="px-0 pr-lg-3">
+                        <div class="icon-rounded mb-3 bg-secondary-light">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <h3 class="h6 text-uppercase">Track your Daily routs</h3>
+                        <p class="text-muted text-sm">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed in</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="px-0 pr-lg-3">
+                        <div class="icon-rounded mb-3 bg-primary-light">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <h3 class="h6 text-uppercase">Track your Expenses and Manage</h3>
+                        <p class="text-muted text-sm">The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pit</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="px-0 pr-lg-3">
+                        <div class="icon-rounded mb-3 bg-secondary-light">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <h3 class="h6 text-uppercase">Enjoy your Journeys</h3>
+                        <p class="text-muted text-sm">His room, a proper human room although a little too small, lay peacefully between its four familiar </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="px-0 pr-lg-3">
+                        <div class="icon-rounded mb-3 bg-primary-light">
+                            <i class="far fa-heart"></i>
+                        </div>
+                        <h3 class="h6 text-uppercase">Save Time and Money</h3>
+                        <p class="text-muted text-sm">Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid px-0">
+            <div class="swiper-container instagram-slider">
+                <div class="swiper-wrapper d-inline-flex">
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-1.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-2.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-3.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-4.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-5.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-6.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-7.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-8.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-9.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-10.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-11.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-12.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-13.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-14.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-10.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-11.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-12.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-13.jpg" alt=" "></a></div>
+                    <div class="swiper-slide overflow-hidden"><a href="#"><img class="img-fluid hover-scale" src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/instagram/instagram-14.jpg" alt=" "></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 
