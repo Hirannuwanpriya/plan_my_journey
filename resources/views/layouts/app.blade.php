@@ -15,55 +15,53 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/inner-pages.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/default.min.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
+<div id="app">
+    <header>
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center">
+                    <a class="navbar-brand py-1" href="{{ url('/') }}">
+                        <img src="https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/logo.svg"
+                             alt="Plan My Journey">
+                    </a>
+                </div>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                <!-- Navbar Collapse -->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('map.index') }}">Map</a></li>
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Sign in</a></li>
                             @endif
-                            
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Sign up</a></li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 mr-lg-3 d-lg-none d-xl-inline-block">
+                                <a class="btn btn-primary" href="#">Dashboard</a></li>
+                            <li class="nav-item dropdown mr-lg-3 ">
+                                <a class="nav-link dropdown-toggle active"
+                                   id="homeDropdownMenuLink" href="#" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Hi, {{ auth()->user()->name }}</a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="homeDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('LogOut') }}</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -74,10 +72,11 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+        <!-- /Navbar -->
+    </header>
+    <main>
+        @yield('content')
+    </main>
+</div>
 </body>
 </html>

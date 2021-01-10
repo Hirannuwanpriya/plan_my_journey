@@ -1,5 +1,8 @@
 <?php
+declare(strict_types=1);
 
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/map', function () {
-    return view('map.map');
+Route::get('map', [
+    'as' => 'map.index',
+    'uses' => 'App\Http\Controllers\MapController@index'
+]);
+
+Route::get('/layout', function () {
+    return view('layout');
 });
 
 Auth::routes();
