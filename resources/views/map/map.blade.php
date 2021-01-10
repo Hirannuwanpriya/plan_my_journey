@@ -123,24 +123,81 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
-    <section class="d-flex align-items-center bg-cover" style="padding-top: 4rem !important;">
+    <section class="d-flex align-items-center bg-cover pt-3">
         <!-- Sidebar -->
-        <div class="bg-light border-right col-md-4" id="sidebar-wrapper">
-            <div id="inputs">
-                <pre>
-        var origin1 = {lat: 55.930, lng: -3.118};
-        var origin2 = 'Greenwich, England';
-        var destinationA = 'Stockholm, Sweden';
-        var destinationB = {lat: 50.087, lng: 14.421};
-                </pre>
-                <button id="getRoute" onclick="getRoute()">getRoute</button>
+        <div class="col-md-3" id="sidebar-wrapper" style="height: 1000px;">
+            <div id="inputs" class="mb-2 clearfix">
+                <form>
+                    <div class="form-group">
+                        <input class="form-control form-control-lg mt-1 mb-1"
+                               type="text" placeholder="Choose starting point, or click on the map...">
+                        <input class="form-control form-control-lg"
+                               type="text" placeholder="Choose destination...">
+                        <button class="btn btn-link btn-collapse pl-0 text-secondary" type="button">More destination</button>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary float-right" type="submit"> <i class="fas fa-map mr-1"></i>Apply</button>                    </div>
+                </form>
             </div>
-            <div>
-                <strong>Results</strong>
+
+            <hr>
+            <div id="output1">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h4 class="mb-1 card-title">Card title</h4>
+                            </div>
+                            <div class="col-4 text-right">
+                                <small class="text-muted">3 days ago</small>
+                                <h6 class="mb-1">Card title</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h4 class="mb-1 card-title">Card title</h4>
+                            </div>
+                            <div class="col-4 text-right">
+                                <small class="text-muted">3 days ago</small>
+                                <h6 class="mb-1">Card title</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h4 class="mb-1 card-title">Card title</h4>
+                            </div>
+                            <div class="col-4 text-right">
+                                <small class="text-muted">3 days ago</small>
+                                <h6 class="mb-1">Card title</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h4 class="mb-1 card-title">Card title</h4>
+                            </div>
+                            <div class="col-4 text-right">
+                                <small class="text-muted">3 days ago</small>
+                                <h6 class="mb-1">Card title</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="output"></div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div id="map"></div>
         </div>
     </section>
