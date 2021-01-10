@@ -88,6 +88,8 @@
                                     {address: destinationList[j]},
                                     showGeocodedAddressOnMap(true)
                                 );
+
+
                                 outputDiv.innerHTML +=
                                     originList[i] +
                                     " to " +
@@ -147,9 +149,11 @@
                         <div class="row">
                             <div class="col-8">
                                 <h4 class="mb-1 card-title">Card title</h4>
+                                <small>Climate | End Time</small>
                             </div>
                             <div class="col-4 text-right">
                                 <small class="text-muted">3 days ago</small>
+                                <p class="mb-1">Card title</p>
                                 <h6 class="mb-1">Card title</h6>
                             </div>
                         </div>
@@ -160,9 +164,11 @@
                         <div class="row">
                             <div class="col-8">
                                 <h4 class="mb-1 card-title">Card title</h4>
+                                <small>Climate | End Time</small>
                             </div>
                             <div class="col-4 text-right">
                                 <small class="text-muted">3 days ago</small>
+                                <p class="mb-1">Card title</p>
                                 <h6 class="mb-1">Card title</h6>
                             </div>
                         </div>
@@ -173,9 +179,11 @@
                         <div class="row">
                             <div class="col-8">
                                 <h4 class="mb-1 card-title">Card title</h4>
+                                <small>Climate | End Time</small>
                             </div>
                             <div class="col-4 text-right">
                                 <small class="text-muted">3 days ago</small>
+                                <p class="mb-1">Card title</p>
                                 <h6 class="mb-1">Card title</h6>
                             </div>
                         </div>
@@ -186,15 +194,18 @@
                         <div class="row">
                             <div class="col-8">
                                 <h4 class="mb-1 card-title">Card title</h4>
+                                <small>Climate | End Time</small>
                             </div>
                             <div class="col-4 text-right">
                                 <small class="text-muted">3 days ago</small>
+                                <p class="mb-1">Card title</p>
                                 <h6 class="mb-1">Card title</h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div id="output"></div>
         </div>
         <div class="col-md-9">
