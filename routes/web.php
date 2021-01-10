@@ -16,6 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Map page complete
+//1.	Type start and end location 
+//2.	Draw/link each points
+//3.	Design stat layout
+//a.	Cost
+//b.	Weather
+//c.	Time
+//d.	Distance
+//Dashboard complete
+//1.	Layout with hardcoded values
+//Homepage Design complete
+//Route list page design complete
+//Expenses list page
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
