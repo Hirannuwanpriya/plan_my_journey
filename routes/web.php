@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Map page complete
-//1.	Type start and end location 
+//1.	Type start and end location
 //2.	Draw/link each points
 //3.	Design stat layout
 //a.	Cost
@@ -47,4 +47,4 @@ Route::get('/layout', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

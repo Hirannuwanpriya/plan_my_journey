@@ -53,7 +53,7 @@
                             @endif
                         @else
                             <li class="nav-item mt-3 mt-lg-0 ml-lg-3 mr-lg-3 d-lg-none d-xl-inline-block">
-                                <a class="btn btn-primary" href="#">Dashboard</a></li>
+                                <a class="btn btn-primary" href="{{ route('dashboard') }}">Dashboard</a></li>
                             <li class="nav-item dropdown mr-lg-3 ">
                                 <a class="nav-link dropdown-toggle active"
                                    id="homeDropdownMenuLink" href="#" data-toggle="dropdown"

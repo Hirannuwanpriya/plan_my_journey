@@ -135,10 +135,13 @@
                                type="text" placeholder="Choose starting point, or click on the map...">
                         <input class="form-control form-control-lg"
                                type="text" placeholder="Choose destination...">
-                        <button class="btn btn-link btn-collapse pl-0 text-secondary" type="button">More destination</button>
+                        <button class="btn btn-link btn-collapse pl-0 text-secondary" type="button">More destination
+                        </button>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary float-right" type="submit"> <i class="fas fa-map mr-1"></i>Apply</button>                    </div>
+                        <button class="btn btn-primary float-right" type="submit"><i class="fas fa-map mr-1"></i>Apply
+                        </button>
+                    </div>
                 </form>
             </div>
 
@@ -148,13 +151,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
-                                <h4 class="mb-1 card-title">Card title</h4>
-                                <small>Climate | End Time</small>
+                                <h6 class="mb-1 card-title">No.5 Alexandra Pll, 1A, 02 Centre Rd</h6>
+                                <small>Colombo 00700, Sri Lanka | Sunny</small>
                             </div>
                             <div class="col-4 text-right">
-                                <small class="text-muted">3 days ago</small>
-                                <p class="mb-1">Card title</p>
-                                <h6 class="mb-1">Card title</h6>
+                                <small class="text-muted">13 mins</small>
+                                <p class="mb-1">4.5 km</p>
+                                <h6 class="mb-1">Rs 250</h6>
                             </div>
                         </div>
                     </div>
@@ -163,13 +166,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
-                                <h4 class="mb-1 card-title">Card title</h4>
-                                <small>Climate | End Time</small>
+                                <h6 class="mb-1 card-title">1A, 02 Centre Rd, R. A. De Mel Mawatha</h6>
+                                <small>Colombo 00300, Sri Lanka | Sunny</small>
                             </div>
                             <div class="col-4 text-right">
-                                <small class="text-muted">3 days ago</small>
-                                <p class="mb-1">Card title</p>
-                                <h6 class="mb-1">Card title</h6>
+                                <small class="text-muted">7 mins</small>
+                                <p class="mb-1">2.3 km</p>
+                                <h6 class="mb-1">Rs 130</h6>
                             </div>
                         </div>
                     </div>
@@ -178,13 +181,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
-                                <h4 class="mb-1 card-title">Card title</h4>
-                                <small>Climate | End Time</small>
+                                <h6 class="mb-1 card-title"> R. A. De Mel Mawatha, Liberty Plaza</h6>
+                                <small>Colombo 00700, Sri Lanka | Sunny</small>
                             </div>
                             <div class="col-4 text-right">
-                                <small class="text-muted">3 days ago</small>
-                                <p class="mb-1">Card title</p>
-                                <h6 class="mb-1">Card title</h6>
+                                <small class="text-muted">8 mins</small>
+                                <p class="mb-1">2.7 km</p>
+                                <h6 class="mb-1">Rs 180</h6>
                             </div>
                         </div>
                     </div>
@@ -193,20 +196,20 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
-                                <h4 class="mb-1 card-title">Card title</h4>
-                                <small>Climate | End Time</small>
+                                <h6 class="mb-1 card-title">Liberty Plaza , No.5 Alexandra Pl</h6>
+                                <small>Colombo 00700, Sri Lanka | Sunny</small>
                             </div>
                             <div class="col-4 text-right">
-                                <small class="text-muted">3 days ago</small>
-                                <p class="mb-1">Card title</p>
-                                <h6 class="mb-1">Card title</h6>
+                                <small class="text-muted">30 mins</small>
+                                <p class="mb-1">9 km</p>
+                                <h6 class="mb-1">Rs 450</h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="output"></div>
+            <div id="output" class="d-none"></div>
         </div>
         <div class="col-md-9">
             <div id="map"></div>
