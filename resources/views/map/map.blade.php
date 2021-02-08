@@ -32,12 +32,6 @@
             const destinationA = "One Galle Face, Colombo";
             const destinationB = "Liberty Plaza, Colombo 03";
 
-            // const origin1 = {lat: 6.916724, lng: 79.8652142};
-            // const origin2 = "Liberty Plaza, Srilanka";
-            // const destinationA = "One Galle Face, Srilanka";
-            // const destinationB = {lat: 6.9043637, lng: 79.8674914};
-
-
             service.getDistanceMatrix(
                 {
                     origins: [origin1, origin2],

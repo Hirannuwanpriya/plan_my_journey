@@ -10,9 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @package App\Models
  * @property int id
  * @property int uuid
- * @property string city
- * @property string zip
- * @property string state
  * @property string latitude
  * @property string longitude
  * @property Carbon created_at
@@ -20,9 +17,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon deleted_at
  * @property Carbon last_login_at
  */
-class Map extends Model
+class Journey extends Model
 {
     use HasFactory;
+
 
     /**
      * The attributes that are mass assignable.
@@ -32,9 +30,6 @@ class Map extends Model
     protected $fillable = [
         'id',
         'uuid',
-        'city',
-        'zip',
-        'state',
         'latitude',
         'longitude',
         'created_at',
