@@ -36,9 +36,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dev', function () {
+    return view('dev');
+});
+
 Route::get('map', [
     'as' => 'map.index',
     'uses' => 'App\Http\Controllers\MapController@index'
+]);
+
+Route::get('my-routs', [
+    'as' => 'user.my_routs',
+    'uses' => 'App\Http\Controllers\HomeController@myRouts'
+]);
+
+Route::get('my-rout', [
+    'as' => 'user.view_rout',
+    'uses' => 'App\Http\Controllers\HomeController@viewRout'
 ]);
 
 Route::get('/layout', function () {

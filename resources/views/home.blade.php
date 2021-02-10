@@ -237,6 +237,7 @@
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Latest Routs</h6>
+                        <a href="{{ route('user.my_routs') }}" class="anchorjs-link">{{ __('View All') }}</a>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -441,7 +442,7 @@
                         <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
                             unDraw →</a>
                     </div>
-                </div>
+                </div>s
 
                 <!-- Approach -->
                 <div class="card shadow mb-4">
