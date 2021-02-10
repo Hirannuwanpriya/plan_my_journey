@@ -19,6 +19,8 @@
                         <button class="btn btn-link btn-collapse pl-0 text-secondary add-new-input" type="button">More
                             destination
                         </button>
+                        <button class="btn pl-0 text-danger remove-new-input" type="button">Remove
+                        </button>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary float-right"
@@ -39,8 +41,8 @@
 
             <input type="hidden" value="" id="weather-current">
             <input type="hidden" value="" id="weather-forecast">
-            <input type="text" value="" id="weather-current-conditions">
-            <input type="text" value="" id="weather-current-temperature">
+            <input type="hidden" value="" id="weather-current-conditions">
+            <input type="hidden" value="" id="weather-current-temperature">
         </div>
     </section>
 
@@ -94,12 +96,21 @@
 
                 new_input_count++;
 
-                const new_input = $('.places-input').last().after('<input class="form-control form-control-lg places-input"\n' +
+                const new_input = $('.places-input').last().after('<input class="form-control form-control-lg places-input mt-1"\n' +
                     ' id="pac-input' + new_input_count + '" type="text" placeholder="Choose destination...">');
 
                 const newEl = document.getElementById('pac-input' + new_input_count);
 
                 addPlaceInput(newEl, plan_my_journey[0]);
+            });
+
+            $('.remove-new-input').click(function (e) {
+
+                new_input_count--;
+
+                if( $('.places-input').length > 2) {
+                    $('.places-input').last().remove();
+                }
             });
 
             $("#menu-toggle").click(function (e) {
@@ -108,11 +119,22 @@
             });
         }
 
+        function initialize() {
+
+        }
 
         function getRoute(my_journey) {
+
             const directionsService = new google.maps.DirectionsService();
             const directionsRenderer = new google.maps.DirectionsRenderer();
-            directionsRenderer.setMap(plan_my_journey[0]);
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: {lat: 6.9191155, lng: 79.8937902},
+                zoom: 13,
+            });
+
+            directionsRenderer.setMap(map);
+            // directionsRenderer.setMap(plan_my_journey[0]);
             calculateAndDisplayRoute(directionsService, directionsRenderer);
             return true;
         }
@@ -209,91 +231,6 @@
             );
         }
 
-        //
-        // function getRoute1(my_journey) {
-        //
-        //
-        //     $('.places-input').each(function (index, element) {
-        //         if (index == 0) {
-        //             origins = $(this).val();
-        //         } else {
-        //             destinations.push($(this).val());
-        //         }
-        //     });
-        //
-        //     my_journey[3].getDistanceMatrix(
-        //         {
-        //             origins: [origins],
-        //             destinations: destinations,
-        //             travelMode: google.maps.TravelMode.DRIVING,
-        //             unitSystem: google.maps.UnitSystem.METRIC,
-        //             avoidHighways: false,
-        //             avoidTolls: false,
-        //         },
-        //         (response, status) => {
-        //             if (status !== "OK") {
-        //                 alert("Error was: " + status);
-        //             } else {
-        //                 const originList = response.originAddresses;
-        //                 const destinationList = response.destinationAddresses;
-        //                 const outputDiv = document.getElementById("output");
-        //                 outputDiv.innerHTML = "";
-        //                 deleteMarkers(markersArray);
-        //
-        //                 const showGeocodedAddressOnMap = function (asDestination) {
-        //                     const icon = asDestination ? destinationIcon : originIcon;
-        //
-        //                     return function (results, status) {
-        //                         if (status === "OK") {
-        //                             plan_my_journey[0].fitBounds(plan_my_journey[1].extend(results[0].geometry.location));
-        //                             markersArray.push(
-        //                                 new google.maps.Marker({
-        //                                     map: plan_my_journey[0],
-        //                                     position: results[0].geometry.location,
-        //                                     icon: icon,
-        //                                     draggable: true
-        //                                 })
-        //                             );
-        //                         } else {
-        //                             alert("Geocode was not successful due to: " + status);
-        //                         }
-        //                     };
-        //                 };
-        //
-        //                 for (let i = 0; i < originList.length; i++) {
-        //                     const results = response.rows[i].elements;
-        //                     my_journey[2].geocode(
-        //                         {address: originList[i]},
-        //                         showGeocodedAddressOnMap(false)
-        //                     );
-        //
-        //                     for (let j = 0; j < results.length; j++) {
-        //                         my_journey[2].geocode(
-        //                             {address: destinationList[j]},
-        //                             showGeocodedAddressOnMap(true)
-        //                         );
-        //
-        //
-        //                         outputDiv.innerHTML +=
-        //                             originList[i] +
-        //                             " to " +
-        //                             destinationList[j] +
-        //                             ": " +
-        //                             results[j].distance.text +
-        //                             " in " +
-        //                             results[j].duration.text +
-        //                             "<br>";
-        //
-        //
-        //                         console.log(outputDiv);
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     );
-        //
-        // }
-
         function addPlaceInput(ele, map) {
 
             const options = {
@@ -321,30 +258,12 @@
 
         function getGeoCode() {
             route_breakdown = [];
+            $('#output').html('');
             if (getRoute(plan_my_journey)) {
                 setTimeout(function () {
                     $('.set-weather').text($('#weather-current-conditions').val() + ' ' + $('#weather-current-temperature').val());
                 }, 2000);
             }
-
-
-            // $('.places-input').each(function (index, element) {
-            //     plan_my_journey[2].geocode({address: $(this).val()}, (results, status) => {
-            //         if (status === "OK") {
-            //             $.each(results, function (index, value) {
-            //                 new google.maps.Marker({
-            //                     map: plan_my_journey[0],
-            //                     position: value.geometry.location,
-            //                 });
-            //                 plan_my_journey[0].setCenter(value.geometry.location);
-            //             });
-            //         } else {
-            //             alert(
-            //                 "Geocode was not successful for the following reason: " + status
-            //             );
-            //         }
-            //     });
-            // });
         }
 
         function getWeather(lat, long) {
