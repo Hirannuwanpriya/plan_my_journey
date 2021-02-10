@@ -39,6 +39,8 @@
 
             <input type="hidden" value="" id="weather-current">
             <input type="hidden" value="" id="weather-forecast">
+            <input type="text" value="" id="weather-current-conditions">
+            <input type="text" value="" id="weather-current-temperature">
         </div>
     </section>
 
@@ -112,6 +114,7 @@
             const directionsRenderer = new google.maps.DirectionsRenderer();
             directionsRenderer.setMap(plan_my_journey[0]);
             calculateAndDisplayRoute(directionsService, directionsRenderer);
+            return true;
         }
 
         function calculateAndDisplayRoute(directionsService, directionsRenderer) {
@@ -148,8 +151,12 @@
                         // For each route, display summary information.
                         for (let i = 0; i < route.legs.length; i++) {
 
-                            if(i == 0 || (i == route.legs.length -1) ) {
+                            if (i == 0 || (i == route.legs.length - 1)) {
                                 continue;
+                            }
+
+                            if (i == 1) {
+                                getWeather(route.legs[i].end_location.lat(), route.legs[i].end_location.lng());
                             }
 
                             const route_obj = {
@@ -170,7 +177,7 @@
                                 'duration': {
                                     'text': route.legs[i].duration.text,
                                     'value': route.legs[i].duration.value
-                                }
+                                },
                                 // 'weather': getWeather(route.legs[i].end_location.lat(), route.legs[i].end_location.lng())
                             };
 
@@ -179,7 +186,7 @@
                                 '        <div class="row">\n' +
                                 '            <div class="col-8">\n' +
                                 '                <h6 class="mb-1 card-title">' + route.legs[i].start_address + '</h6>\n' +
-                                '                <small>' + route.legs[i].end_address + ' | Sunny</small>\n' +
+                                '                <small>' + route.legs[i].end_address + ' | <span class="set-weather"></span></small>\n' +
                                 '            </div>\n' +
                                 '            <div class="col-4 text-right">\n' +
                                 '                <small class="text-muted">' + route.legs[i].duration.text + '</small>\n' +
@@ -314,7 +321,11 @@
 
         function getGeoCode() {
             route_breakdown = [];
-            getRoute(plan_my_journey);
+            if (getRoute(plan_my_journey)) {
+                setTimeout(function () {
+                    $('.set-weather').text($('#weather-current-conditions').val() + ' ' + $('#weather-current-temperature').val());
+                }, 2000);
+            }
 
 
             // $('.places-input').each(function (index, element) {
@@ -348,6 +359,8 @@
 
             Weather.getCurrentByLatLong(lat, long, function (current) {
                 $('#weather-current').val('');
+                $('#weather-current-conditions').val(current.conditions());
+                $('#weather-current-temperature').val(Math.round(Weather.kelvinToCelsius(current.temperature())) + ' °C');
                 $('#weather-current').val('{"conditions":"' + current.conditions() + '","temperature": "' + Math.round(Weather.kelvinToCelsius(current.temperature())) + ' °C"}');
             });
 
