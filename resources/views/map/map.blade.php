@@ -108,7 +108,7 @@
 
                 new_input_count--;
 
-                if( $('.places-input').length > 2) {
+                if ($('.places-input').length > 2) {
                     $('.places-input').last().remove();
                 }
             });
@@ -117,10 +117,6 @@
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
             });
-        }
-
-        function initialize() {
-
         }
 
         function getRoute(my_journey) {
@@ -213,7 +209,7 @@
                                 '            <div class="col-4 text-right">\n' +
                                 '                <small class="text-muted">' + route.legs[i].duration.text + '</small>\n' +
                                 '                <p class="mb-1">' + route.legs[i].distance.text + '</p>\n' +
-                                '                <h6 class="mb-1">Rs 250</h6>\n' +
+                                '                <h6 class="mb-1">' + getPrice(route.legs[i].distance.value) + '</h6>\n' +
                                 '            </div>\n' +
                                 '        </div>\n' +
                                 '    </div>\n' +
@@ -229,6 +225,12 @@
                     }
                 }
             );
+        }
+
+
+        function getPrice(distance) {
+
+            return ((Math.floor(Math.random() * 100) + 1) * (Math.floor(Math.random() * 11) + 1) * distance);
         }
 
         function addPlaceInput(ele, map) {

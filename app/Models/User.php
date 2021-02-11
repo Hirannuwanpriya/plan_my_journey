@@ -85,43 +85,9 @@ class User extends Authenticatable
         'gender',
         'country',
         'birthday',
-        'is_valid',
-        'is_disabled',
-        'is_social_valid',
-        'is_phone_valid',
-        'has_sms_recovery',
         'facebook_id',
         'twitter_id',
         'linkedin_id',
-        'message_notification', // ['broadcast', 'email', 'sms']
-        'reminder_notification', // ['broadcast', 'email', 'sms']
-        'api_limit_notification', // ['broadcast', 'email', 'sms']
-        'legal_notification', // ['broadcast', 'email', 'sms']
-        'payment_notification', // ['broadcast', 'email', 'sms']
-        'subscription_sales_promotions',
-        'subscription_product_updates',
-        'subscription_newsletter',
-
-        // Cart billing
-        'billing_name',
-        'billing_first_address',
-        'billing_second_address',
-        'tva_number',
-        'billing_telephone',
-        'billing_city',
-        'billing_zip_code',
-        'billing_province',
-        'billing_country',
-
-        // Cart Shipping
-        'shipping_name',
-        'shipping_first_address',
-        'shipping_second_address',
-        'shipping_telephone',
-        'shipping_city',
-        'shipping_zip_code',
-        'shipping_province',
-        'shipping_country',
 
         'created_at',
         'updated_at',
