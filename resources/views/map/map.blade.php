@@ -23,7 +23,7 @@
                         </button>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary float-right"
+                        <button class="btn btn-primary float-right" id="apply-filter" disabled
                                 onclick="getGeoCode()" type="button">
                             <i class="fas fa-map mr-1"></i>Apply
                         </button>
@@ -116,6 +116,10 @@
             $("#menu-toggle").click(function (e) {
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
+            });
+
+            $('#pac-input2').keyup(function() {
+                $('#apply-filter').removeAttr('disabled');
             });
         }
 
