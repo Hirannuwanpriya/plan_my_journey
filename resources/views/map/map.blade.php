@@ -23,6 +23,18 @@
                         </button>
                     </div>
                     <div class="form-group">
+                        <select name="travel_modes" id="travel_modes" class="form-control form-control-lg">
+                            <option value="DRIVING" selected>DRIVING</option>
+                            <option value="WALKING">WALKING</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        @if(auth()->check())
+                            <button class="btn btn-info mr-1"
+                                    onclick="saveJourney()" type="button">
+                                Save Journey
+                            </button>
+                        @endif
                         <button class="btn btn-primary float-right" id="apply-filter" disabled
                                 onclick="getGeoCode()" type="button">
                             <i class="fas fa-map mr-1"></i>Apply
@@ -43,12 +55,14 @@
             <input type="hidden" value="" id="weather-forecast">
             <input type="hidden" value="" id="weather-current-conditions">
             <input type="hidden" value="" id="weather-current-temperature">
+            <input type="hidden" name="user_id" value="{{ (auth()->check())? auth()->user()->id : 0 }}">
         </div>
     </section>
 
     <script src="{{ asset('js/weather.min.js') }}"></script>
     <script>
         const plan_my_journey = [];
+        var save_journey = [];
         const map_autocomplete = [];
         const markersArray = [];
         const origin = null;
@@ -66,6 +80,8 @@
 
         var new_input_count = 2;
 
+        var auth_user = 0;
+
         function initMap() {
 
             const bounds = new google.maps.LatLngBounds();
@@ -73,6 +89,8 @@
                 center: {lat: 6.9191155, lng: 79.8937902},
                 zoom: 13,
             });
+
+
 
             const inputs = document.getElementsByClassName("places-input");
 
@@ -118,7 +136,7 @@
                 $("#wrapper").toggleClass("toggled");
             });
 
-            $('#pac-input2').keyup(function() {
+            $('#pac-input2').keyup(function () {
                 $('#apply-filter').removeAttr('disabled');
             });
         }
@@ -156,19 +174,29 @@
 
             const destination = destinations[destinations.length - 1];
 
+            var travel_modes = $('#travel_modes').val();
+
+            var t_mode = google.maps.TravelMode.WALKING;
+
+            if (travel_modes == 'DRIVING') {
+                t_mode = google.maps.TravelMode.DRIVING;
+            }
+
             directionsService.route(
                 {
                     origin: origins,
                     destination: destination,
                     waypoints: waypts,
                     optimizeWaypoints: true,
-                    travelMode: google.maps.TravelMode.DRIVING,
+                    travelMode: t_mode,
                 },
                 (response, status) => {
                     if (status === "OK") {
 
                         directionsRenderer.setDirections(response);
                         const route = response.routes[0];
+
+                        var sub_journey = [];
 
                         // For each route, display summary information.
                         for (let i = 0; i < route.legs.length; i++) {
@@ -213,13 +241,29 @@
                                 '            <div class="col-4 text-right">\n' +
                                 '                <small class="text-muted">' + route.legs[i].duration.text + '</small>\n' +
                                 '                <p class="mb-1">' + route.legs[i].distance.text + '</p>\n' +
-                                '                <h6 class="mb-1">' + getPrice(route.legs[i].distance.value) + '</h6>\n' +
+                                '                ' + getPrice(route.legs[i].distance.value) + '' +
                                 '            </div>\n' +
                                 '        </div>\n' +
                                 '    </div>\n' +
                                 '</div>');
 
                             route_breakdown.push([route_obj]);
+
+                            sub_journey.push(route.legs[i].start_address);
+                            sub_journey.push(route.legs[i].start_location.lat());
+                            sub_journey.push(route.legs[i].start_location.lng());
+
+                            sub_journey.push(route.legs[i].end_address);
+                            sub_journey.push(route.legs[i].end_location.lat());
+                            sub_journey.push(route.legs[i].end_location.lng());
+
+                            sub_journey.push(route.legs[i].distance.text);
+                            sub_journey.push(route.legs[i].distance.value);
+
+                            sub_journey.push(route.legs[i].duration.text);
+                            sub_journey.push(route.legs[i].duration.value);
+
+                            save_journey.push(sub_journey);
                         }
 
                         route_breakdown.shift();
@@ -234,7 +278,17 @@
 
         function getPrice(distance) {
 
-            return ((Math.floor(Math.random() * 100) + 1) * (Math.floor(Math.random() * 11) + 1) * distance);
+            if ($('input[name="user_id"]').val() == '1') {
+                var amount = ((Math.floor(Math.random() * 10) + 1) * distance);
+
+                if(amount > 1000) {
+                    var stripped = Math.floor(amount / 1e3);
+                }
+
+                return '<h6 class="mb-1">Rs ' + stripped + '</h6>';
+            }
+
+            return 'wewe';
         }
 
         function addPlaceInput(ele, map) {
@@ -295,5 +349,11 @@
             });
         }
 
+        function saveJourney() {
+
+            console.log(save_journey);
+            swal("Saved Journey!", "Successfully Saved your Journey", "success");
+
+        }
     </script>
 @endsection

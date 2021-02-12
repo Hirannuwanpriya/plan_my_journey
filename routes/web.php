@@ -45,12 +45,17 @@ Route::get('map', [
     'uses' => 'App\Http\Controllers\MapController@index'
 ]);
 
+Route::get('my-wallet', [
+    'as' => 'user.my_wallet',
+    'uses' => 'App\Http\Controllers\HomeController@myWallet'
+]);
+
 Route::get('my-routs', [
     'as' => 'user.my_routs',
     'uses' => 'App\Http\Controllers\HomeController@myRouts'
 ]);
 
-Route::get('my-rout', [
+Route::get('my-rout/{journey_id}', [
     'as' => 'user.view_rout',
     'uses' => 'App\Http\Controllers\HomeController@viewRout'
 ]);

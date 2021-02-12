@@ -16,42 +16,17 @@
                 <div class="card-body">
                     <table class="table table-hover">
                         <tbody>
-                        <tr>
-                            <th>Home, Colombo 03...</th>
-                            <td>03-07-2020 10:24 A.M</td>
-                            <td>15Km</td>
-                            <td>Rs 400</td>
-                            <td>
-                                <a href="{{ route('user.view_rout') }}" class="btn btn-primary">{{ __('View') }}</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Dehiwala, Fort...</th>
-                            <td>03-07-2020 10:24 A.M</td>
-                            <td>25Km</td>
-                            <td>Rs 600</td>
-                            <td>
-                                <a href="{{ route('user.view_rout') }}" class="btn btn-primary">{{ __('View') }}</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Kohuwala, Nugegoda...</th>
-                            <td>03-07-2020 10:24 A.M</td>
-                            <td>1Km</td>
-                            <td>Rs 200</td>
-                            <td>
-                                <a href="{{ route('user.view_rout') }}" class="btn btn-primary">{{ __('View') }}</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Kandy, Home...</th>
-                            <td>03-07-2020 10:24 A.M</td>
-                            <td>320Km</td>
-                            <td>Rs 1500</td>
-                            <td>
-                                <a href="{{ route('user.view_rout') }}" class="btn btn-primary">{{ __('View') }}</a>
-                            </td>
-                        </tr>
+                        @foreach($journeys as $journey)
+                            <tr>
+                                <th>{{ $journey->start_address }}</th>
+                                <td>{{ $journey->created_at->format('j-m-Y g:i A') }}</td>
+                                <td>{{ $journey->distance_text }}</td>
+                                <td>Rs {{ $journey->duration_value }}</td>
+                                <td>
+                                    <a href="{{ route('user.view_rout', $journey->id) }}" class="btn btn-primary">{{ __('View') }}</a>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

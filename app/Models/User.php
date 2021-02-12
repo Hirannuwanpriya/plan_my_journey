@@ -14,7 +14,7 @@ use Illuminate\Notifications\Notifiable;
  * @package App\Models
  * @property int id
  * @property int uuid
- * @property string user_name
+ * @property string name
  * @property string email
  * @property Carbon email_verified_at
  * @property string password
@@ -75,12 +75,10 @@ class User extends Authenticatable
     protected $fillable = [
         'id',
         'uuid',
-        'user_name',
+        'name',
         'email',
         'email_verified_at',
         'password',
-        'first_name',
-        'last_name',
         'phone',
         'gender',
         'country',

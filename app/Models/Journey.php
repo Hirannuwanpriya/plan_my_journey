@@ -29,7 +29,8 @@ class Journey extends Model
      */
     protected $fillable = [
         'id',
-        'uuid',
+        'uid',
+        'tid',
         'latitude',
         'longitude',
         'start_address',
@@ -45,7 +46,6 @@ class Journey extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-        'last_login_at',
     ];
 }
 
